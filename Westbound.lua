@@ -1,37 +1,5 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
-if game.Players.LocalPlayer.Character == nil then
-    local tempwindow = Rayfield:CreateWindow({
-        Name = "westbound 🌟 v0.0",
-        LoadingTitle = "💫supernova💫",
-        LoadingSubtitle = "A project by Exxen",
-        ConfigurationSaving = {
-           Enabled = false,
-           FolderName = "ExxensScripts",
-           FileName = "Westbound"
-        },
-        Discord = {
-           Enabled = false,
-           Invite = "yPfnRkwW6r",
-           RememberJoins = true
-        },
-        KeySystem = false
-     })
-     
-    Rayfield:Notify({
-        Title = "Notice",
-        Content = "The GUI will boot once you spawn in!",
-        Duration = 5,
-        Image = 4483362458,
-        Actions = { -- Notification Buttons
-        Ignore = {Name = "Okay!",Callback = function()
-        end}
-    },
-    })
-end
-
-repeat wait() until game.Players.LocalPlayer.Character ~= nil and game.Players.LocalPlayer.Character:FindFirstChild("CharacterLocal")
-
 local Window = Rayfield:CreateWindow({
    Name = "westbound 🌟 Dev Build",
    LoadingTitle = "💫supernova💫",
@@ -52,7 +20,7 @@ local Window = Rayfield:CreateWindow({
 local combatTab = Window:CreateTab("Combat", 4483362458)
 local charTab = Window:CreateTab("Character", 4483362458)
 local miscTab = Window:CreateTab("Misc", 4483362458)
-
+print("1")
 local plr = game.Players.LocalPlayer
 local notif = require(game:GetService("ReplicatedStorage").UIModules.NotifyUser)
 local function char()
@@ -90,7 +58,7 @@ local function getHorse()
         end
     end
 end
-
+print("2")
 
 combatTab:CreateToggle({Name = "Gun Mods",CurrentValue = false,Callback = function(Value)
     if Value == true then
@@ -131,7 +99,7 @@ combatTab:CreateToggle({Name = "Gun Mods",CurrentValue = false,Callback = functi
     end
 end})
 
-charTab:CreateToggle({Name = "Toggle WalkSpeed",CurrentValue = false,Callback = function(Value)
+--[[charTab:CreateToggle({Name = "Toggle WalkSpeed",CurrentValue = false,Callback = function(Value)
     settings.wsToggle = Value
     if Value == false then
         if char():FindFirstChildOfClass("Humanoid") then
@@ -141,7 +109,7 @@ charTab:CreateToggle({Name = "Toggle WalkSpeed",CurrentValue = false,Callback = 
 end})
 charTab:CreateSlider({Name = "WalkSpeed",Range = {13, 250},Increment = 1,Suffix = " ",CurrentValue = 13,Callback = function(Value)
     settings.ws = Value
-end})
+end})]]-- resulting in kick, bypass must be old
 
 charTab:CreateToggle({Name = "Toggle JumpPower",CurrentValue = false,Callback = function(Value)
     settings.jpToggle = Value
